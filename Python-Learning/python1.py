@@ -186,3 +186,5 @@ while secret_number!=n:
     print("no match found")
 print("You got the right number")
 print("no of tries=",tries)
+#QUESTION SET 4: Questions on Functions:-
+
