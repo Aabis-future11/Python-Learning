@@ -13,7 +13,7 @@ I have built this using Rule-Based Logic:
 
 ## Tech Stack
 - Language: Python 
-- Concepts Used: Functions, Boolean Logic, Conditional Branching, User Input and output and Using for loop.
+- Concepts Used: Functions,Conditional Branching, User Input/output and Using for loop.
 
 ##  Future Roadmap (Coming Soon)
 - [ ] Integration with Google Sheets API.
