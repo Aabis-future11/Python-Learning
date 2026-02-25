@@ -1,7 +1,7 @@
 #PART-2:PYTHON DATA STRUCTURES, EXECPTION HANDLING & FILE HANDLING
 #QUESTION SET 1: Questions on List:
 # Print positive and negative elements of an List?
-'''a=[]
+a=[]
 n=int(input("enter no of elements:"))
 for i in range(n):
     x=int(input("enter number:"))
@@ -88,7 +88,7 @@ for i in b:
         a[i]+=b[i]
     else:
         a[i]=b[i]
-print(a)'''
+print(a)
 
 
 
