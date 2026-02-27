@@ -442,3 +442,82 @@ for i in range(1,n+1):
 '''n=int(input("Enter number:"))
 for i in range(10,0,-1):
     print(f"{n}*{i}={n*i}")'''
+#---------------FUNCTIONS AND RECURSIONS----------------------#
+'''
+def greet():
+    NAME=input("Enter Name:")
+    print(f"GOOD DAY,{NAME}")
+greet()'''
+#1. Write a program using functions to find greatest of three numbers. 
+'''def greatest(a,b,c):
+    if a>b and a>c:
+        print(f"{a} is the greatest")
+    elif b>a and b>c:
+        print(f"{b} is the greatest")
+    else:
+        print(f"{c} is th greatest")
+a=int(input("Enter number 1st:"))
+b=int(input("Enter number 2nd:"))
+c=int(input("Enter number 3rd:"))
+greatest(a,b,c)'''
+
+    
+    
+#2. Write a python program using function to convert Celsius to Fahrenheit. 
+'''def cel_to_fahr(n):
+    fahrenheit=((9/5)*n)+32
+    print(f"{fahrenheit} is converted temperature in fahrenheit")
+n=int(input("Enter temperature in degree celsius:"))
+cel_to_fahr(n)'''
+
+#3. How do you prevent a python print() function to print a new line at the end. 
+'''def new_line(data):
+    return f"{data}\n"
+data=input("Enter the data:")
+print(new_line(data))'''
+
+#4. Write a recursive function to calculate the sum of first n natural numbers. 
+'''def sum_natural(n):
+    if n==0:
+        return 0
+    return n + sum_natural(n-1)
+n=int(input("Enter Number:"))
+print(f"{sum_natural(n)} is the sum of natural numbers uptill given number")'''
+
+#5. Write a python function to print first n lines of the following pattern: 
+'''*** 
+    **               
+     * - for n = 3 '''
+'''def n_lines(n):
+    for i in range (1,n+1):
+        for j in range (0,i-1):
+            print(" ",end="")
+        for k in range (n,i-1,-1):
+            print("*",end="")
+        print()
+n=int(input("no of lines:"))
+n_lines(n)'''
+
+#6. Write a python function which converts inches to cms. 
+'''def inch_cm(n):
+    return n*2.54
+n=int(input("Enter inches:"))
+print(f"{n}={inch_cm(n)} centimeters")'''
+#7. Write a python function to remove a given word from a list ad strip it at the same time.
+def strip(l,word):
+    n=[]
+    for item in l:
+        if not(item==word):
+            n.append(item.strip(word))
+    return n
+
+
+l=["Harry","Sadrul","Shogul","ul","Rahul"]
+
+print(strip(l,word="ul"))
+#8. Write a python function to print multiplication table of a given number.
+'''def table(n):
+    for i in range(1,n+1):
+        print(f"{n}*{i}={n*i}")
+n=int(input("Enter a number:"))
+table(n)'''
