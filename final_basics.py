@@ -157,9 +157,9 @@ a=str.replace("      ",name)
 print(a)'''
 
 #2. Write a program to fill in a letter template given below with name and date. 
-letter = "Dear <|Name|>,\nYou are selected!\n<|Date|> "
+'''letter = "Dear <|Name|>,\nYou are selected!\n<|Date|> "
 print(letter.replace("<|Name|>","Aabgeen").replace("<|Date|>","22th February"))
-print()
+print()'''
 #3. Write a program to detect double space in a string. 
 '''str=input("Enter Data:")
 print(str.find("  "))
@@ -504,7 +504,7 @@ n_lines(n)'''
 n=int(input("Enter inches:"))
 print(f"{n}={inch_cm(n)} centimeters")'''
 #7. Write a python function to remove a given word from a list ad strip it at the same time.
-def strip(l,word):
+'''def strip(l,word):
     n=[]
     for item in l:
         if not(item==word):
@@ -514,10 +514,227 @@ def strip(l,word):
 
 l=["Harry","Sadrul","Shogul","ul","Rahul"]
 
-print(strip(l,word="ul"))
+print(strip(l,word="ul"))'''
 #8. Write a python function to print multiplication table of a given number.
 '''def table(n):
     for i in range(1,n+1):
         print(f"{n}*{i}={n*i}")
 n=int(input("Enter a number:"))
 table(n)'''
+#--------FILE HANDLING--------------------#
+#1. Write a program to read the text from a given file ‘poems.txt’ and find out whether it contains the word ‘twinkle’. 
+'''with open("poems.txt","r") as file:
+    content=file.read()
+if ("Twinkle" in content):
+    print("Yes,Twinkle word exists")
+else:
+    print("No Twinkle Word does not exist")
+print(content)'''
+
+#2. The game() function in a program lets a user play a game and returns the score 
+##as an integer. You need to read a file ‘Hi-score.txt’ which is either blank or 
+##contains the previous Hi-score. You need to write a program to update the Hi
+##score whenever the game() function breaks the Hi-score. 
+'''import random
+def game():
+    score=random.randint(1,100)
+    with open("highscore.txt","r") as f:
+        highscore=f.read()
+        if (highscore!=""):
+            highscore=int(highscore)
+        else:
+            highscore=0   
+    print(f"Your score is {score}")
+    if (score>highscore):
+        with open("highscore.txt","w") as f:
+            f.write(str(score))
+    
+game()'''
+    
+#3. Write a program to generate multiplication tables from 2 to 20 and write it to the 
+##different files. Place these files in a folder for a 13 – year old.
+'''def tables(n):
+    with open(f"Table_{n}.txt","w") as file:
+        for i in range(1,11):
+            file.write(f"{n}*{i}={n*i}\n")
+        
+for i in range(2,21):
+    tables(i)'''
+
+
+#4. A file contains a word “Donkey” multiple times. You need to write a program 
+##which replace this word with ##### by updating the same file.
+'''with open("donkey_file.txt","r") as f:
+    content=f.read()
+content=content.replace("Donkey","####")
+
+with open("donkey_file.txt","w") as file:
+    file.write(content)'''
+
+
+#5. Repeat program 4 for a list of such words to be censored. 
+'''list=['MAN','SHOPKEEPER','STRANGE','DOG','WOMAN','RED','CROWD']
+for i in list:
+    with open("censor.txt","r") as f:
+        content=f.read()
+        content=content.replace(i,"####")
+    with open("censor.txt","w") as file:
+        file.write(content)'''
+#6. Write a program to mine a log file and find out whether it contains ‘python’.
+'''with open("log.html","r")as file:
+    content=file.readlines()
+    lineno=1
+for i in content:#else will only run when all for loop gets complete
+    if "python" in i:
+        print(f"Yes file contains python,Lineno:{lineno}")
+        break
+    lineno+=1
+    
+else:
+         print("No it does not contain python")'''
+#7. Write a program to find out the line number where python is present from ques 6. 
+#8. Write a program to make a copy of a text file “this. txt” 
+'''with open("this.txt","r") as file:
+     content=file.read()
+with open("copy.txt","w") as f:
+     f.write(content)'''
+#9. Write a program to find out whether a file is identical & matches the content of 
+##another file. 
+'''with open("copy.txt") as file:
+    content=file.read()
+with open("this.txt") as f:
+    content2=f.read()
+if content==content2:
+    print("Files are same")
+else:
+    print("Files are not same")'''
+#10. Write a program to wipe out the content of a file using python.
+'''with open ("copy.txt","w") as file:
+    file.write("")
+    print("file deleted")'''
+
+#11. Write a python program to rename a file to “renamed_by_ python.txt.
+'''import os
+
+if os.path.exists("copy.txt"):
+    os.rename("copy.txt", "go.txt")
+else:
+    print("File does not exist)'''
+#---------------OOPS---------#
+'''class Employee:
+    name="AABGEEN"
+    age=12
+    salary=140000
+info=Employee()
+print(info.name)
+print(info.age)
+Employee.salary=160000
+Employee.role="Manager"
+Employee.company="Glean"
+print(f"{info.salary}\n{Employee.role}\n{info.company}")
+rohan=Employee()
+rohan.name="Rohan Ronit"
+Employee.company="Bain"
+rohan.tenure=10
+rohan.role="Project Manager"
+print(f"{rohan.name}\n{rohan.age}\n{rohan.salary}\n{rohan.tenure}\n{rohan.role}\n{rohan.company}")'''
+
+#Here tenure and role are object attributes and name,age and salary are class attributes
+##as they directly belong to class
+'''class Employee:
+    language="Python"
+    salary=1500000
+    def getinfo(self):
+        print(f"The language is {self.language} and salary is {self.salary}")
+harry=Employee()
+harry.getinfo()
+Employee.getinfo(harry)'''
+#1. Create a class “Programmer” for storing information of few programmers 
+##working at Microsoft. 
+'''class Programmer:
+    def __init__(self,name,language,experience):
+        self.name=name
+        self.language=language
+        self.experience=experience
+    def show(self):
+        print(f''The name of programmer is {self.name},language known is {self.language} and experience owned is {self.experience}'')
+prog1=Programmer("Harry","Python",20)
+prog2=Programmer("aabi","Javascript",25)
+prog1.show()
+prog2.show()'''
+#2. Write a class “Calculator” capable of finding square, cube and square root of a number. 
+'''import math
+class calculator:
+    def __init__(self,number):
+        self.number=number
+    def show(self):
+        print(f"the square is {(self.number)*(self.number)}")
+        print(f"the cube is {(self.number)*(self.number)*(self.number)}")
+        print(f"the square root is {math.sqrt(self.number)}")
+number=calculator(81)
+number.show()'''
+#3. Create a class with a class attribute a; create an object from it and set ‘a’ 
+##directly using ‘object.a = 0’. Does this change the class attribute? 
+'''class new:
+    a=23
+    def show():
+        print("new age")
+object=new()
+print(object.a)#prints class attribute as no instance attribute was present before
+new.a=0 # instance attribute is set now
+print(f"the value of a is {new.a}")'''#yes object attribute overwrites the class attribute
+#4. Add a static method in problem 2, to greet the user with hello. 
+'''import math
+class calculator:
+    def __init__(self,number):
+        self.number=number
+    @staticmethod
+    def greet():
+        print("Hello User")
+    def show(self):
+        print(f"the square is {(self.number)*(self.number)}")
+        print(f"the cube is {(self.number)*(self.number)*(self.number)}")
+        print(f"the square root is {math.sqrt(self.number)}")
+number=calculator(81)
+number.greet()
+number.show()'''
+#5. Write a Class ‘Train’ which has methods to book a ticket, get status (no of seats) 
+##and get fare information of train running under Indian Railways. 
+'''class Train:
+    def __init__(self,number,time,duration,fare):
+        self.number=number
+        self.time=time
+        self.duration=duration
+        self.fare=fare
+
+
+    def book(self):
+      print(f"The train number{self.number} is booked at {self.time} and duration is {self.duration}")
+    def get_status(self):
+        print(f"The train number {self.number} is On Time")
+    
+    def get_fare(self):
+        print(f"The train number {self.number} fare is {self.fare}")
+        
+    def showdetails(self):
+        print(f"The Train number is {self.number}\n,the time is {self.time}\n,the duration is {self.duration}\n,the status is on time\nand fare is {self.fare}\n")
+Shatabdi=Train(2345,"17:00","5 hrs",1500)
+Shatabdi.book()
+Shatabdi.get_status()
+Shatabdi.get_fare()
+Shatabdi.showdetails()'''
+#6. Can you change the self-parameter inside a class to something else 
+##(say “harry”). Try changing self to “slf” or “harry” and see the effects.
+'''class student:
+    def __init__(harry,name,rollno,section,grade):
+        harry.name=name
+        harry.rollno=rollno
+        harry.section=section
+        harry.grade=grade
+    def showinfo(slf):
+        print(f"The name of student is {slf.name}, the roll no. is {slf.rollno} and grade is {slf.grade}")
+st1=student('AABGEEN',43,'G1\'H\'','A')
+st1.showinfo()'''#NO NOTHING WILL HAPPEN AS IT IS JUST A VARIABLE WHICH IS REFERENCE TO THE OBJECT CREATED..
+#AND EVERYTIME WE CHANGE PARAMETER NAME ONLY THE NAME OF VARIABLE THAT REFERENCES IT INSIDE METHOD CHANGES
+#BUT THE OBJECT REMAINS SAME
+
